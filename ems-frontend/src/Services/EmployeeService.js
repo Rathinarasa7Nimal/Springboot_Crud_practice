@@ -1,18 +1,27 @@
 import axios from "axios";
+import config, { apiPath } from "../config";
 
-const REST_API_BASE_URL = 'http://localhost:8080/api/employees';
+// Backend base URL from .env (VITE_API_BASE_URL)
+const BASE_URL = config.API_BASE;
 
-export const listEmployees = () => axios.get(REST_API_BASE_URL);
+// Employee API endpoint
+const REST_API_BASE_URL = apiPath('/api/employees');
 
-export const createEmployee = (employee) => axios.post(REST_API_BASE_URL, employee);
+// *************************************
+// Employee Service API Calls
+// *************************************
 
-export const getEmployee = (employeeId) => axios.get(`${REST_API_BASE_URL}/${employeeId}`);
+export const listEmployees = () =>
+    axios.get(REST_API_BASE_URL);
 
-// export const updateEmployee = (employeeId, employee)=> axios.put(REST_API_BASE_URL + '/' + employeeId,employee);
+export const createEmployee = (employee) =>
+    axios.post(REST_API_BASE_URL, employee);
 
-export const updateEmployee = (employeeId, employee) => axios.put(`${REST_API_BASE_URL}/${employeeId}`, employee);
+export const getEmployee = (employeeId) =>
+    axios.get(`${REST_API_BASE_URL}/${employeeId}`);
 
+export const updateEmployee = (employeeId, employee) =>
+    axios.put(`${REST_API_BASE_URL}/${employeeId}`, employee);
 
-// export const deleteEmployee = (employeeId) => axios.delete(REST_API_BASE_URL,+'/'+employeeId);
-
-export const deleteEmployee = (employeeId) => axios.delete(`${REST_API_BASE_URL}/${employeeId}`);
+export const deleteEmployee = (employeeId) =>
+    axios.delete(`${REST_API_BASE_URL}/${employeeId}`);

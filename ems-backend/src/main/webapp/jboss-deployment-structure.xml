@@ -1,0 +1,9 @@
+<jboss-deployment-structure>
+    <deployment>
+        <exclusions>
+            <module name="org.hibernate.validator"/>
+            <module name="javax.validation.api"/>
+            <module name="org.jboss.as.validation"/>
+        </exclusions>
+    </deployment>
+</jboss-deployment-structure>
